@@ -49,9 +49,11 @@ post '/NewPost' do
 end
 
 get '/details/:post_id' do
+  #получаем переменную из URL
   post_id = params[:post_id]
 
-  results = @db.execute 'SELECT * FROM POSTS ORDER BY id = ?', [post_id]
+  #получаем пост из базы
+  results = @db.execute 'SELECT * FROM POSTS WHERE id = ?', [post_id]
   @row = results[0]
 
   erb :details
