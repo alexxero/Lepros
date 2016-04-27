@@ -47,3 +47,5 @@ post '/NewPost' do
   redirect to '/'
 
 end
+
+get 
