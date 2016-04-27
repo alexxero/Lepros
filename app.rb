@@ -51,5 +51,8 @@ end
 get '/details/:post_id' do
   post_id = params[:post_id]
 
-  erb "Some information about post #{post_id}"
+  results = @db.execute 'SELECT * FROM POSTS ORDER BY id = ?', [post_id]
+  @row = results[0]
+
+  erb :details
 end
